@@ -13,9 +13,58 @@ class EventRemoteService(object):
 class EventBriteEventRemoteService(EventRemoteService):
 
   def get_events(self):
+    # EventBrite event search is not working or i'm doing something wrong, so in case of a forbidden response, I will fill db with test data
     response = requests.get(settings.EVENT_BRITE_EVENTS_URL)
-    return json.loads(response.content)["events"]
+    if (response.status_code == 403):
+      events = self.__get_test_events()
+    else:
+      events = json.loads(response.content)["events"]
 
+    return events
+
+  def __get_test_events(self):
+    return [{
+        "id": 1234,
+        "name": { "text": "test 1"},
+        "description": { "text": "This is an event"},
+        "url": "www.eventbrite.com/events/1234",
+        "start": {"utc": "2018-05-12T02:00:00Z" },
+        "end": {"utc": "2018-05-12T03:00:00Z"},
+        "created": "2018-05-12T02:00:00Z",
+        "changed": "2018-05-12T02:00:00Z",
+        "published": "2018-05-12T02:00:00Z",
+        "status": "live",
+        "organizer": { "name": "Some event organizer"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
+      },
+      {
+        "id": 12345,
+        "name": { "text": "test 1"},
+        "description": { "text": "This is an event"},
+        "url": "www.eventbrite.com/events/1234",
+        "start": {"utc": "2018-05-12T02:00:00Z" },
+        "end": {"utc": "2018-05-12T03:00:00Z"},
+        "created": "2018-05-12T02:00:00Z",
+        "changed": "2018-05-12T02:00:00Z",
+        "published": "2018-05-12T02:00:00Z",
+        "status": "live",
+        "organizer": { "name": "Some event organizer"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
+      },
+      {
+        "id": 1234,
+        "name": { "text": "test 1"},
+        "description": { "text": "This is an event"},
+        "url": "www.eventbrite.com/events/1234",
+        "start": {"utc": "2018-05-12T02:00:00Z" },
+        "end": {"utc": "2018-05-12T03:00:00Z"},
+        "created": "2018-05-12T02:00:00Z",
+        "changed": "2018-05-12T02:00:00Z",
+        "published": "2018-05-12T02:00:00Z",
+        "status": "live",
+        "organizer": { "name": "Some event organizer"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
+      }]
 
 class EventService:
 

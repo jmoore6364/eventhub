@@ -25,7 +25,7 @@ SECRET_KEY = 'gc*44!3n$nom2&4b6uajzu*4w8(r1i%zur-7fq&=8k8tt8ea$%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blooming-dawn-35995.herokuapp.com']
+ALLOWED_HOSTS = ['blooming-dawn-35995.herokuapp.com', 'localhost']
 
 
 # Application definition
