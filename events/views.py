@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, filters
 from rest_framework.parsers import JSONParser
 from django_filters.rest_framework import DjangoFilterBackend
 from django.http import HttpResponse, JsonResponse
@@ -19,5 +19,6 @@ def homePageView(request):
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     filterset_fields = ['name', 'cost', 'start', 'organizer']
+    ordering_fields = ['name', 'cost', 'start', 'organizer']
