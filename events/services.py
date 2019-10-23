@@ -25,9 +25,23 @@ class EventBriteEventRemoteService(EventRemoteService):
   def __get_test_events(self):
     return [{
         "id": 1234,
-        "name": { "text": "test 1"},
-        "description": { "text": "This is an event"},
+        "name": { "text": "Greenday Concert"},
+        "description": { "text": "This concert event"},
         "url": "www.eventbrite.com/events/1234",
+        "start": {"utc": "2019-05-12" },
+        "end": {"utc": "2018-05-12T03:00:00Z"},
+        "created": "2018-05-12T02:00:00Z",
+        "changed": "2018-05-12T02:00:00Z",
+        "published": "2018-05-12T02:00:00Z",
+        "status": "live",
+        "organizer": { "name": "Some event organizer"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
+      },
+      {
+        "id": 1235,
+        "name": { "text": "Santana Concert"},
+        "description": { "text": "Santana Concert"},
+        "url": "www.eventbrite.com/events/1235",
         "start": {"utc": "2018-05-12T02:00:00Z" },
         "end": {"utc": "2018-05-12T03:00:00Z"},
         "created": "2018-05-12T02:00:00Z",
@@ -38,33 +52,34 @@ class EventBriteEventRemoteService(EventRemoteService):
         "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
       },
       {
-        "id": 12345,
-        "name": { "text": "test 1"},
-        "description": { "text": "This is an event"},
-        "url": "www.eventbrite.com/events/1234",
+        "id": 1236,
+        "name": { "text": "Disney on Ice"},
+        "description": { "text": "This is an indoor event"},
+        "url": "www.eventbrite.com/events/1236",
         "start": {"utc": "2018-05-12T02:00:00Z" },
         "end": {"utc": "2018-05-12T03:00:00Z"},
         "created": "2018-05-12T02:00:00Z",
         "changed": "2018-05-12T02:00:00Z",
         "published": "2018-05-12T02:00:00Z",
         "status": "live",
-        "organizer": { "name": "Some event organizer"},
-        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
+        "organizer": { "name": "Disney"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 30.00 }}
       },
       {
-        "id": 1234,
-        "name": { "text": "test 1"},
-        "description": { "text": "This is an event"},
-        "url": "www.eventbrite.com/events/1234",
+        "id": 1237,
+        "name": { "text": "Mega Halloween Party"},
+        "description": { "text": "This is Halloween Party event"},
+        "url": "www.eventbrite.com/events/1236",
         "start": {"utc": "2018-05-12T02:00:00Z" },
         "end": {"utc": "2018-05-12T03:00:00Z"},
         "created": "2018-05-12T02:00:00Z",
         "changed": "2018-05-12T02:00:00Z",
         "published": "2018-05-12T02:00:00Z",
         "status": "live",
-        "organizer": { "name": "Some event organizer"},
-        "ticket_availability": { "minimum_ticket_price": { "value": 105.00 }}
-      }]
+        "organizer": { "name": "Aykut Events"},
+        "ticket_availability": { "minimum_ticket_price": { "value": 55.00 }}
+      }
+      ]
 
 class EventService:
 
