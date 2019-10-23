@@ -12,9 +12,10 @@ from .serializers import EventSerializer
 
 
 def homePageView(request):
-  event_service = EventServiceFactory().create()
-  event_service.init_db()
-  return HttpResponse(Event.objects.all())
+  #event_service = EventServiceFactory().create()
+  #event_service.init_db()
+  #return HttpResponse(Event.objects.all())
+  return HttpResponse("Hello world!")
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
